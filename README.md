@@ -5,12 +5,14 @@
 
 Spits out some stats about webpack compilation process to a file.
 
+(fork for Proboston usage, added few options)
+
 <br>
 
 #### Install
 
 ```bash
-npm install --save-dev webpack-bundle-tracker
+npm install --save-dev proboston/webpack-bundle-tracker
 ```
 
 <br>
@@ -28,6 +30,8 @@ module.exports = {
         path: require("path").resolve('./assets/bundles/'),
         filename: "[name]-[hash].js",
         publicPath: 'http://localhost:3000/assets/bundles/',
+        fillPath: false,
+        appendHash: false
     },
 
     plugins: [
@@ -107,3 +111,5 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 * `logTime` - Optional boolean property to output `startTime` and `endTime` in bundle tracker file.
 * `path` - Optional bundle tracker output path.
 * `publicPath` - Optional property to override `output.publicPath`.
+* `fillPath` - If true, then `path` property will be filled, otherwise empty
+* `appendHash` - If true, then at end of `publicPath` wil be appended question mark and bundle hash
