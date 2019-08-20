@@ -29,13 +29,16 @@ module.exports = {
     output: {
         path: require("path").resolve('./assets/bundles/'),
         filename: "[name]-[hash].js",
-        publicPath: 'http://localhost:3000/assets/bundles/',
-        fillPath: false,
-        appendHash: false
+        publicPath: 'http://localhost:3000/assets/bundles/'
     },
 
     plugins: [
-      new BundleTracker({path: __dirname, filename: './assets/webpack-stats.json'})
+      new BundleTracker({
+        path: __dirname, 
+        filename: './assets/webpack-stats.json',
+        fillPath: false,
+        appendHash: true
+      })
     ]
 }
 ```
